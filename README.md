@@ -1,25 +1,24 @@
 # Filter
-Программа, которая применяет фильтры к BMP, как описано ниже.
+A program that applies filters to a BMP, as described below.
 
-## Оттенки серого
-Одним из распространенных фильтров является фильтр «оттенки серого», когда мы берем изображение и хотим преобразовать его в черно-белое. 
-Если для всех значений красного, зеленого и синего установлены значения 0x00(шестнадцатеричное для 0), то пиксель будет черным. И если для всех значений установлено значение 0xff(шестнадцатеричное для 255), то пиксель белый. Пока значения красного, зеленого и синего равны, результатом будут различные оттенки серого в черно-белом спектре, причем более высокие значения означают более светлые оттенки (ближе к белому), а более низкие значения означают более темные оттенки (ближе к белому). чернить).
+# Grayscale
+One of the common filters is the grayscale filter when we take an image and want to convert it to black and white. If all red, green and blue values are set to 0x00(hexadecimal for 0) then the pixel will be black. And if all values are set to 0xff(hexadecimal for 255), then the pixel is white. As long as the red, green and blue values are equal, the result will be different shades of gray in the black and white spectrum, with higher values meaning lighter shades (closer to white) and lower values meaning darker shades (closer to white).
 
-Таким образом, чтобы преобразовать пиксель в оттенки серого, нам просто нужно убедиться, что значения красного, зеленого и синего имеют одинаковое значение. Чтобы убедиться, что каждый пиксель нового изображения по-прежнему имеет ту же общую яркость или темноту, что и старое изображение, мы можем взять среднее значение красного, зеленого и синего, чтобы определить, какой оттенок серого сделать для нового пикселя.
+So, to convert a pixel to grayscale, we just need to make sure that the red, green and blue values have the same value. To make sure that each pixel in the new image still has the same overall brightness or darkness as the old image, we can take the average value of red, green and blue to determine which shade of gray to make for the new pixel.
 
 make filter
 
 ./filter -g infile.bmp outfile.bmp
 
-## Сепия
-Фильтр «сепия», который придает изображениям старомодный вид, делая все изображение немного красновато-коричневым.
+# Sepia
+A "sepia" filter that gives images an old-fashioned look by making the whole image look a bit reddish brown.
 
 make filter
 
 ./filter -s infile.bmp outfile.bmp
 
-## Отражение
-Отражение изображения — это фильтр, в котором результирующее изображение — это то, что вы получили бы, поместив исходное изображение перед зеркалом. Таким образом, любые пиксели в левой части изображения должны оказаться справа, и наоборот.
+# Reflection
+An image reflection is a filter in which the resulting image is what you would get by placing the original image in front of a mirror. So any pixels on the left side of the image should end up on the right, and vice versa.
 
 make filter
 
